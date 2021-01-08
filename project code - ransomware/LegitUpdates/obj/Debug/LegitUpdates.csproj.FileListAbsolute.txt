@@ -1,0 +1,10 @@
+C:\Users\benbo\source\repos\LegitUpdates\bin\Debug\LegitUpdates.exe.config
+C:\Users\benbo\source\repos\LegitUpdates\bin\Debug\LegitUpdates.exe
+C:\Users\benbo\source\repos\LegitUpdates\bin\Debug\LegitUpdates.pdb
+C:\Users\benbo\source\repos\LegitUpdates\bin\Debug\Topshelf.dll
+C:\Users\benbo\source\repos\LegitUpdates\bin\Debug\Topshelf.xml
+C:\Users\benbo\source\repos\LegitUpdates\obj\Debug\LegitUpdates.csprojAssemblyReference.cache
+C:\Users\benbo\source\repos\LegitUpdates\obj\Debug\LegitUpdates.csproj.CoreCompileInputs.cache
+C:\Users\benbo\source\repos\LegitUpdates\obj\Debug\LegitUpdates.csproj.CopyComplete
+C:\Users\benbo\source\repos\LegitUpdates\obj\Debug\LegitUpdates.exe
+C:\Users\benbo\source\repos\LegitUpdates\obj\Debug\LegitUpdates.pdb
