@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Permissions;
 using System.Collections;
+using System.Threading;
 
 namespace NTbutinCS
 {
@@ -36,17 +37,30 @@ namespace NTbutinCS
                     DateTime n = DateTime.Now;
                     String fn = "log_" + n.ToString().Replace(' ', '_').Replace(":", "-").Replace("/", "-") + ".csv";
                     //File.Create(@"D:\NINJATURTLES\NINJATURTLES\logs\" + fn);
-                    Console.WriteLine("LogFileCreated");
+                    Console.WriteLine("Log File Created");
+                    Console.WriteLine();
+                    foreach (String[] sa in log)
+                    {
+
+                        foreach (String str in sa)
+                        {
+
+                            Console.Write(str + ",");
+                        }
+                        Console.Write("\n");
+                    }
                     using (StreamWriter sw = new StreamWriter(@"D:\NINJATURTLES\NINJATURTLES\logs\" + fn))
                     {
-                        foreach(String[] i in log)
+
+                        foreach(String[] sa in log)
                         {
-                            for(int k = 0; k < i.Length; k++)
+                            foreach(String str in sa)
                             {
-                                sw.Write(i[k] + ",");
+                                sw.Write(str + ",");
                             }
-                            
+                            sw.Write("\n");
                         }
+                       
                     }
                 };
 
@@ -55,7 +69,11 @@ namespace NTbutinCS
                     KernelTraceEventParser.Keywords.Process
                 );
 
+                
                 //handle specific types of events
+
+
+
                 kernelSession.Source.Kernel.ProcessStart += processStarted;
                 //kernelSession.Source.Kernel.ProcessStop += processStopped;
 
@@ -65,51 +83,22 @@ namespace NTbutinCS
 
         }
 
-        private static void MonitorDirectory()
-        {
-            String path = @"c:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp";
-            FileSystemWatcher fsw = new FileSystemWatcher();
-            fsw.Path = path;
-            fsw.Created += FileSystemWatcher_Created;
-        }
-
-        private static void FileSystemWatcher_Created(object sender, FileSystemEventArgs e)
-        {
-            Console.WriteLine("File created");
-        }
+        
 
        
         //can add code here and it will run with ever new process
         private static void processStarted(ProcessTraceData data)
         {
             
+            
             int pID = data.ProcessID;
-            Console.WriteLine("Process Started: " + pID);
-            MonitorDirectory();
-            try
-            {
-                
-                Process target = Process.GetProcessById(pID);
-                //detect module import
-                //currently only printing a single module
-               
-                Console.WriteLine("[{0}]", string.Join(", ", target.Modules));
-                Console.WriteLine(target.Modules);
-                String[] add = { pID.ToString(), target.Modules.ToString(), "0", "0" };
-                //log.Add(add);
-                //detect file creation
-                log.AddRange(add);
-            }
-            catch
-            {
-                Console.WriteLine("Could not handle Process " + pID);
-                String[] add = { pID.ToString(), "0", "0", "0" };
-                //log.Add(add);
-                log.AddRange(add);
-            }
+            check ck = new check(pID);
+            log.Add(ck.NT());
             
             
         }
+
+      
         //private static void processStopped(ProcessTraceData data) { }
     }
 }
