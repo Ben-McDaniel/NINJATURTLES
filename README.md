@@ -6,4 +6,4 @@
 A repo with unfinished EDR code written during my time as an ASPIRE Intern at JHUAPL. Unfortunately I am unable to release any more complete code for this project, but did continue work on it, presenting my finished product at Kernelcon2022.
 ## Demo
 
-[![Click Here](thumbnail.png "Thumbnail")](https://drive.google.com/file/d/1HhlbQM4F3OJMZmWVd3sEowVwitimUqeE/preview "Video Title")
+[![Click Here](thumbnail.PNG "Thumbnail")](https://drive.google.com/file/d/1HhlbQM4F3OJMZmWVd3sEowVwitimUqeE/preview "Video Title")
